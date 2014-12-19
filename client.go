@@ -19,9 +19,7 @@ var (
 
 func init() {
 	cookiejar, _ := cookiejar.New(nil)
-	client = &http.Client {
-		Jar: cookiejar
-	}
+	client = &http.Client{ Jar: cookiejar }
 }
 
 func (c *Client) SignIn() (*Board, error) {
@@ -30,9 +28,8 @@ func (c *Client) SignIn() (*Board, error) {
 	response, err := client.PostForm(DASHBOARD_ENDPOINT,
 		url.Values{
 			"login": { c.Login },
-			"password": { c.Password }
-		}
-	)
+			"password": { c.Password },
+		})
 	if err != nil {
 		return nil, err
 	} else {
