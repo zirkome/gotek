@@ -33,7 +33,7 @@ With Docker:
 ```sh
 cd sample
 docker build -t my-sample-app .
-docker run --it --rm --name my-running-app my-sample-app
+docker run -it --rm --name my-running-app my-sample-app
 ```
 
 Manually:
