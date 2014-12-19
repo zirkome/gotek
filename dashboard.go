@@ -1,11 +1,9 @@
 package gotech
 
-type Board struct {
-	Projets	[]Project
-	Modules	[]Module
-	Infos	Infos
-	Current	Current
-}
+import (
+	"io/ioutil"
+	"encoding/json"
+)
 
 type Project struct {
 	Title		string
@@ -56,30 +54,31 @@ type Current struct {
 	Inprogress	int
 }
 
-type Schedule struct {
-	ActiveLog	string `json:"active_log"`
-	CreditsMin	string `json:"credits_min"`
-	CreditsNorm	string `json:"credits_norm"`
-	CreditsObj	string `json:"credits_obj"`
-	Achieved	int
-	Failed		int
-	Inprogress	int
+type Board struct {
+	Projets	[]Project
+	Modules	[]Module
+	Infos	Infos
+	Current	Current
 }
 
-type Event struct {
-	Scolaryear	 string
-	Codemodule	 string
-	Codeinstance	 string
-	Codeacti	 string
-	Codeevent	 string
-	Semester	 int
-	InstanceLocation string `json:"instance_location"`
-	Titlemodule	 string `json:"titlemodule"`
-	ActiTitle	 string `json:"acti_title"`
-	Start		 string
-	End		 string
-	TotalStudentsRegistered string `json:"total_students_registered"`
-	TypeTitle	 string `json:"type_title"`
-	NbHours		 string `json:"nb_hours"`
-	RegisterStudent	 bool `json:"register_student"`
+func (c *Client) GetDashboard() (*Board, error) {
+	var dashboard Board
+
+	response, err := client.Get(DASHBOARD_ENDPOINT)
+	if err != nil {
+		return nil, err
+	} else {
+		defer response.Body.Close()
+
+		contents, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			return nil, err
+		}
+
+		err = json.Unmarshal(contents[31:], &dashboard)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return &dashboard, nil
 }
