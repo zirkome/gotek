@@ -22,3 +22,25 @@ schedule, _ := client.GetSchedule()
 ```
 
 Check out the [sample](https://github.com/kokaz/gotek/blob/master/sample "Sample") folder to get the whole code
+
+Run the sample
+======
+
+You can use your own `golang` binary or you can use the Dockerfile provided in the repository
+
+With Docker:
+
+```sh
+cd sample
+docker build -t my-sample-app .
+docker run --it --rm --name my-running-app my-sample-app
+```
+
+Manually:
+
+```sh
+cd sample
+go get -v -d
+go get -v
+$GOPATH/bin/sample
+```
