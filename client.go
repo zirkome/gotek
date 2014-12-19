@@ -1,4 +1,4 @@
-package gotech
+package gotek
 
 import (
 	"io/ioutil"

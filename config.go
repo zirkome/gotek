@@ -1,4 +1,4 @@
-package gotech
+package gotek
 
 const (
 	API_ENDPOINT = "https://intra.epitech.eu"
