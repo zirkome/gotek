@@ -16,7 +16,7 @@ Usage
 Here is a little sample to log into the Epitech Intranet, get the dashboard and get your schedule
 
 ```go
-client := &gotech.Client{Login: "login_x", Password: "unix_password"}
+client := &gotek.Client{Login: "login_x", Password: "unix_password"}
 dashboard, _ := client.SignIn()
 schedule, _ := client.GetSchedule()
 ```
