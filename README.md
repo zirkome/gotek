@@ -1,4 +1,4 @@
-Gotech
+Gotek
 ======
 
 A Golang library for Epitech Intra Webservice
