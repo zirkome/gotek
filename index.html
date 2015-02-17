@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Gotek by kokaz</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Gotek</h1>
+        <p>A Golang library for Epitech Intra Webservice</p>
+
+        <p class="view"><a href="https://github.com/kokaz/gotek">View the Project on GitHub <small>kokaz/gotek</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/kokaz/gotek/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kokaz/gotek/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kokaz/gotek">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="gotek" class="anchor" href="#gotek" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gotek</h1>
+
+<p>A Golang library for Epitech Intra Webservice</p>
+
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<div class="highlight highlight-sh"><pre>go get -u https://github.com/kokaz/gotek</pre></div>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>Here is a little sample to log into the Epitech Intranet, get the dashboard and get your schedule</p>
+
+<div class="highlight highlight-go"><pre><span class="pl-vo">client</span> <span class="pl-k">:=</span> &amp;gotek.<span class="pl-vo">Client</span>{Login: <span class="pl-s1"><span class="pl-pds">"</span>login_x<span class="pl-pds">"</span></span>, <span class="pl-v">Password</span>: <span class="pl-s1"><span class="pl-pds">"</span>unix_password<span class="pl-pds">"</span></span>}
+<span class="pl-vo">dashboard</span>, <span class="pl-vo">_</span> <span class="pl-k">:=</span> client.<span class="pl-s3">SignIn</span>()
+<span class="pl-vo">schedule</span>, <span class="pl-vo">_</span> <span class="pl-k">:=</span> client.<span class="pl-s3">GetSchedule</span>()</pre></div>
+
+<p>Check out the <a href="https://github.com/kokaz/gotek/blob/master/sample" title="Sample">sample</a> folder to get the whole code</p>
+
+<h1>
+<a id="run-the-sample" class="anchor" href="#run-the-sample" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run the sample</h1>
+
+<p>You can use your own <code>golang</code> binary or you can use the Dockerfile provided in the repository</p>
+
+<p>With Docker:</p>
+
+<div class="highlight highlight-sh"><pre><span class="pl-s3">cd</span> sample
+docker build -t my-sample-app <span class="pl-s3">.</span>
+docker run -it --rm --name my-running-app my-sample-app</pre></div>
+
+<p>Manually:</p>
+
+<div class="highlight highlight-sh"><pre><span class="pl-s3">cd</span> sample
+go get -v -d
+go get -v
+<span class="pl-vo">$GOPATH</span>/bin/sample</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kokaz">kokaz</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
