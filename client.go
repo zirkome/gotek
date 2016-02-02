@@ -40,7 +40,7 @@ func (c *Client) SignIn() (*Board, error) {
 			return nil, err
 		}
 
-		err = json.Unmarshal(contents[31:], &dashboard)
+		err = json.Unmarshal(contents, &dashboard)
 		if err != nil {
 			return nil, err
 		}

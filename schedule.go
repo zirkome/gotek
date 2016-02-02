@@ -37,7 +37,7 @@ func (c *Client) GetSchedule() ([]Event, error) {
 			return nil, err
 		}
 
-		err = json.Unmarshal(contents[31:], &schedule)
+		err = json.Unmarshal(contents, &schedule)
 		if err != nil {
 			return nil, err
 		}
