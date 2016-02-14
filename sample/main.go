@@ -6,7 +6,7 @@ import (
 	"os"
 	"syscall"
 
-	"github.com/Welanor/gotek"
+	"github.com/kokaz/gotek"
 	"golang.org/x/crypto/ssh/terminal"
 )
 
