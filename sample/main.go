@@ -6,8 +6,8 @@ import (
 	"os"
 	"syscall"
 
+	"github.com/Welanor/gotek"
 	"golang.org/x/crypto/ssh/terminal"
-	"github.com/kokaz/gotek"
 )
 
 func readLine(prompt string) (input string, err error) {
@@ -42,7 +42,7 @@ func main() {
 	if err != nil {
 		fmt.Printf(err.Error())
 	}
-	fmt.Println(dashboard.Infos.Id)
+	fmt.Println(dashboard.Infos.ID)
 
 	schedule, err := client.GetSchedule()
 	if err != nil {

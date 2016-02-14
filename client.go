@@ -1,16 +1,16 @@
 package gotek
 
 import (
-	"io/ioutil"
 	"encoding/json"
-	"net/url"
+	"io/ioutil"
 	"net/http"
 	"net/http/cookiejar"
+	"net/url"
 )
 
 type Client struct {
-	Login		string
-	Password	string
+	Login    string
+	Password string
 }
 
 var (
@@ -19,31 +19,30 @@ var (
 
 func init() {
 	cookiejar, _ := cookiejar.New(nil)
-	client = &http.Client{ Jar: cookiejar }
+	client = &http.Client{Jar: cookiejar}
 }
 
-func (c *Client) SignIn() (*Board, error) {
-	var dashboard Board
+func (c *Client) SignIn() (*Dashboard, error) {
+	var dashboard Dashboard
 
 	response, err := client.PostForm(DASHBOARD_ENDPOINT,
 		url.Values{
-			"login": { c.Login },
-			"password": { c.Password },
+			"login":    {c.Login},
+			"password": {c.Password},
 		})
 	if err != nil {
 		return nil, err
-	} else {
-		defer response.Body.Close()
+	}
+	defer response.Body.Close()
 
-		contents, err := ioutil.ReadAll(response.Body)
-		if err != nil {
-			return nil, err
-		}
+	contents, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return nil, err
+	}
 
-		err = json.Unmarshal(contents, &dashboard)
-		if err != nil {
-			return nil, err
-		}
+	err = json.Unmarshal(contents, &dashboard)
+	if err != nil {
+		return nil, err
 	}
 	return &dashboard, nil
 }
