@@ -1,3 +1,5 @@
+**DEPRECATED: Epitech Intranet move the authentication mecanism to Microsoft's OAuth2**
+
 Gotek
 ======
 
@@ -39,10 +41,7 @@ docker run -it --rm --name my-running-app my-sample-app
 Manually:
 
 ```sh
-cd sample
-go get -v -d
-go get -v
-$GOPATH/bin/sample
+go get github.com/kokaz/gotek/sample
 ```
 
 LICENSE
